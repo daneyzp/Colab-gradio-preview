@@ -4,76 +4,82 @@
   <title>Upload to Google Drive</title>
   <link rel="icon" href="gradio.png" type="image/png">
   <style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f3f3f3;
-    margin: 0;
-    padding: 0;
-  }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
 
-  .link-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 10px;
-    padding: 10px;
-    background: #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-
-  input[type="text"] {
-    width: 100%;
-    max-width: 400px;
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    flex-grow: 1;
-  }
-
-  button {
-    padding: 8px 16px;
-    font-size: 14px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-
-  iframe {
-    width: 100%;
-    height: 700px;
-    border: none;
-    display: none;
-  }
-
-  @media (max-width: 480px) {
     .link-box {
-      flex-direction: row;
-      gap: 6px;
-      padding: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: nowrap;
     }
 
     input[type="text"] {
-      font-size: 13px;
-      padding: 6px;
+      flex: 1;
+      min-width: 0;
+      max-width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
     }
 
     button {
-      font-size: 13px;
-      padding: 6px 12px;
+      padding: 10px 16px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.3s ease;
+      flex-shrink: 0;
     }
-  }
-</style>
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      .link-box {
+        padding: 10px;
+        gap: 8px;
+      }
+
+      input[type="text"] {
+        font-size: 15px;
+        padding: 9px;
+      }
+
+      button {
+        font-size: 15px;
+        padding: 9px 14px;
+      }
+    }
+  </style>
 </head>
 <body>
+
   <div class="link-box">
     <input type="text" id="gradioLink" placeholder="Paste your Gradio link here..." />
     <button id="toggleButton" onclick="toggleLink()">Add Link</button>
@@ -120,5 +126,6 @@
       }
     };
   </script>
+
 </body>
 </html>
